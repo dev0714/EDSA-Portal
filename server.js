@@ -73,10 +73,10 @@ app.post("/bulk", async (req, res) => {
 // --- Email Validation ---
 app.post("/validate", async (req, res) => {
   try {
-    const resp = await fetch("https://api.sendgrid.com/v3/validations/email", {
+    const resp = await fetch("https://api.sendgrid.com/v3/validations/email", {  // ✅ correct URL
       method: "POST",
       headers: {
-        Authorization: `Bearer ${SENDGRID_VALIDATE_KEY}`,
+        Authorization: `Bearer ${SENDGRID_VALIDATE_KEY}`,  // validation API key
         "Content-Type": "application/json",
       },
       body: JSON.stringify(req.body),
